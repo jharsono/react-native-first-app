@@ -1,13 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,3 +14,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function App() {
+  const [outputText, setOutputText] = useState('Open up App.js to start working on your app!');
+  return (
+    <View style={styles.container}>
+      <Text>{outputText}</Text>
+      <Button
+        title="Change Text"
+        onPress={() => setOutputText('The Text Changed!')}
+      >
+        Open up App.js to start working on your app!
+      </Button>
+    </View>
+  );
+}
